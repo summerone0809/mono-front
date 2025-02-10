@@ -1,38 +1,51 @@
-# sv
+##必要なソフトウェアのインストール
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+以下、ソフトウェアをインストールする
+・Chocolatey (Windows Only)
+・Git
+・Node.js
+・pnpm
+・Docker
+・VSCode
 
-## Creating a project
+##インストール手順（Windows）
 
-If you're seeing this, you've probably already done this step. Congrats!
+1.Windows PowerShell を管理者として起動し、以下のコマンドを実行する。
 
-```bash
-# create a new project in the current directory
-npx sv create
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol =
+    [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-# create a new project in my-app
-npx sv create my-app
-```
+2.コマンドプロンプトを管理者として起動し、以下のコマンドを実行する
 
-## Developing
+    choco install -y git
+    choco install -y docker-desktop
+    choco install -y vscode
+    choco install -y pnpm
+    choco install -y nodejs-lts
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+3.VSCode 拡張機能
 
-```bash
-npm run dev
+    code --install-extension dbaeumer.vscode-eslint
+    code --install-extension josevseb.google-java-format-for-vs-code
+    code --install-extension vscjava.vscode-lombok
+    code --install-extension mhutchie.git-graph
+    code --install-extension ms-vscode.js-debug
+    code --install-extension svelte.svelte-vscode
+    code --install-extension redhat.vscode-quarkus
+    code --install-extension sonarsource.sonarlint-vscode
+    code --install-extension vscjava.vscode-java-pack
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+##開発環境実行手順
 
-## Building
+1.クローンしたプロジェクトを VSCode で起動
+　コマンドプロンプトで以下コマンド実行
 
-To create a production version of your app:
+    code {クローンしたプロジェクトを配置したフォルダパス}/mono-cl
 
-```bash
-npm run build
-```
+2.VSCode の Terminal で以下のコマンドを実行する。
 
-You can preview the production build with `npm run preview`.
+    pnpm dev --open
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+3.ブラウザが起動する（http://localhost:5173）
+
+4.mono-sv プロジェクトをクローンし、README に従って、サーバーの開発環境手順を実施する。
